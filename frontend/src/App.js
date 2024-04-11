@@ -4,7 +4,7 @@ function GreenHouseDetails() {
 const [greenhouse, setgreenhouse] = useState([]);
 
  useEffect(() => {
-  fetch('#')
+  fetch('https://javierperalta.dk/greenhouse.json')
   .then(response => response.json())
       .then(data => {
         return Promise.all(data.results.map(greenhouse => 
@@ -16,13 +16,7 @@ const [greenhouse, setgreenhouse] = useState([]);
         const greenhouseDetails = greenhouseDataArray.map( greenhouseData => ({
           name: greenhouseData.name,
           id: greenhouseData.id,
-          description: greenhouseData.description,
-          window: greenhouseData.window,
-          temperature: greenhouseData.temperature,
-          humidity: greenhouseData.humidity,
-          co2: greenhouseData.co2,
-          light: greenhouseData.light,
-          plants: greenhouseData.plants,
+          window: greenhouseData.window
         }));
         setgreenhouse(greenhouseDetails);
       })
@@ -37,13 +31,7 @@ return (
       <div key={index}>
         <p>{greenhouse.name}</p>
         <p>{greenhouse.id}</p>
-        <p>{greenhouse.description}</p>
         <p>{greenhouse.window}</p>
-        <p>{greenhouse.temperature}</p>
-        <p>{greenhouse.humidity}</p>
-        <p>{greenhouse.co2}</p>
-        <p>{greenhouse.light}</p>
-        <p>{greenhouse.plants}</p>
       </div>
     ))}
   </div>
