@@ -1,0 +1,13 @@
+{
+    "greenhouse": {
+      "name": {
+        "value": "Sample Greenhouse"
+      },
+      "id": {
+        "value": 2
+      },
+      "window": {
+        "value": true
+      }
+    }
+  }
