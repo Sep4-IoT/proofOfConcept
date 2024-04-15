@@ -474,11 +474,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\BackEnd\\BackEnd.csproj",
-      "projectName": "BackEnd",
-      "projectPath": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\BackEnd\\BackEnd.csproj",
+      "projectUniqueName": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\BackEndAPI\\BackEndAPI.csproj",
+      "projectName": "BackEndAPI",
+      "projectPath": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\BackEndAPI\\BackEndAPI.csproj",
       "packagesPath": "C:\\Users\\duart\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\BackEnd\\obj\\",
+      "outputPath": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\BackEndAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\duart\\AppData\\Roaming\\NuGet\\NuGet.Config"

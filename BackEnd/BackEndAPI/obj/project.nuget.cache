@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XoznOGOXChvnaFrhm3t33cddFJOvOpF8yjhdVHmFlJjfzvoPQDYtnX3ePPNmqpI2SttTW/2Ltq/vNJj6zQivYg==",
+  "dgSpecHash": "pPyzihf/IxTKAZ3tut3xWBktu7bAyZ3MQg6NMt7sFbn72s32+60s4YHnILz947w+quJh+Qye816B5LHSYzGuyg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\BackEnd\\BackEnd.csproj",
+  "projectFilePath": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\BackEndAPI\\BackEndAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duart\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.14\\microsoft.aspnetcore.openapi.7.0.14.nupkg.sha512",
     "C:\\Users\\duart\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
