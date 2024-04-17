@@ -9,9 +9,9 @@ function GreenHouseDetails() {
       .then(data => {
         const { name, id, window } = data.greenhouse;
         setGreenhouse({
-          name: name.value,
-          id: id.value,
-          window: window.value
+          name: name,
+          id: id,
+          window: window
         });
       })
       .catch(error => {
