@@ -37,3 +37,5 @@ C:\Users\duart\Documents\GitHub\proofOfConcept\BackEnd\BackEndAPI\obj\Debug\net7
 C:\Users\duart\Documents\GitHub\proofOfConcept\BackEnd\BackEndAPI\obj\Debug\net7.0\ref\BackEndAPI.dll
 C:\Users\duart\Documents\GitHub\proofOfConcept\BackEnd\BackEndAPI\bin\Debug\net7.0\Services.dll
 C:\Users\duart\Documents\GitHub\proofOfConcept\BackEnd\BackEndAPI\bin\Debug\net7.0\Services.pdb
+C:\Users\duart\Documents\GitHub\proofOfConcept\BackEnd\BackEndAPI\bin\Debug\net7.0\FileData.dll
+C:\Users\duart\Documents\GitHub\proofOfConcept\BackEnd\BackEndAPI\bin\Debug\net7.0\FileData.pdb

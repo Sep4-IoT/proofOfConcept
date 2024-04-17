@@ -10,6 +10,7 @@
         "dependencies": {
           "Application": "1.0.0",
           "Domain": "1.0.0",
+          "FileData": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.14",
           "Services": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
@@ -89,6 +90,14 @@
           "Domain.dll": {}
         }
       },
+      "FileData/1.0.0": {
+        "dependencies": {
+          "Application": "1.0.0"
+        },
+        "runtime": {
+          "FileData.dll": {}
+        }
+      },
       "Services/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0"
@@ -160,6 +169,11 @@
       "sha512": ""
     },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FileData/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

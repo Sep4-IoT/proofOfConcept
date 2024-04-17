@@ -131,6 +131,19 @@
           "bin/placeholder/Domain.dll": {}
         }
       },
+      "FileData/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FileData.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FileData.dll": {}
+        }
+      },
       "Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -507,6 +520,11 @@
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
     },
+    "FileData/1.0.0": {
+      "type": "project",
+      "path": "../FileData/FileData.csproj",
+      "msbuildProject": "../FileData/FileData.csproj"
+    },
     "Services/1.0.0": {
       "type": "project",
       "path": "../Services/Services.csproj",
@@ -517,6 +535,7 @@
     "net7.0": [
       "Application >= 1.0.0",
       "Domain >= 1.0.0",
+      "FileData >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.14",
       "Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
@@ -552,6 +571,9 @@
             },
             "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\FileData\\FileData.csproj": {
+              "projectPath": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\FileData\\FileData.csproj"
             },
             "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\Services\\Services.csproj": {
               "projectPath": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\Services\\Services.csproj"
