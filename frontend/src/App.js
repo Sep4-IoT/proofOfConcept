@@ -61,9 +61,9 @@ function GreenHouseDetails() {
  };
 
  return (
-    <div>
+    <div className='container'>
       {greenhouse ? (
-        <div>
+        <div className='wrapper'>
           <p>Name: {greenhouse.name}</p>
           <p>ID: {greenhouse.id}</p>
           <p>Window opened: {greenhouse.window ? 'Yes' : 'No'}</p>
