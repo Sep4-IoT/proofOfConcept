@@ -1,11 +1,14 @@
 const express = require('express');
 const fs = require('fs').promises;
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import cors middleware
+const path = require('path');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors()); // Enable CORS for all routes
 
-const jsonFilePath = '../greenhouse.json'; // Update this with the correct path
+const jsonFilePath = path.join(__dirname, '../greenhouse.json'); // Resolve path to greenhouse.json
 
 // Endpoint to update greenhouse data
 app.put('/api/updateGreenhouse', async (req, res) => {
@@ -29,7 +32,9 @@ app.put('/api/updateGreenhouse', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
+// Define a different port (e.g., 3000)
+const PORT = process.env.PORT || 3000; // Use port 3000 as an example
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

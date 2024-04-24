@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from 'axios'; // Import axios
 
 function GreenHouseDetails() {
   const [greenhouse, setGreenhouse] = useState(null);
@@ -21,18 +21,26 @@ function GreenHouseDetails() {
     fetchGreenhouseData();
   }, []);
 
-  const updateGreenhouseWindow = async (newWindowStatus) => {
+  const updateGreenhouseWindow = async () => {
+    if (!greenhouse) return; // Ensure greenhouse data is loaded
+  
     try {
-      const response = await axios.put('/api/updateGreenhouse', {
+      const newWindowStatus = !greenhouse.window; // Toggle window status
+      const response = await axios.put('http://localhost:3000/api/updateGreenhouse', {
         window: newWindowStatus
       });
       console.log(response.data.message);
-      // Optionally, update the local state or trigger a re-fetch of the JSON data
+  
+      // Update local state with the updated window status
+      setGreenhouse({
+        ...greenhouse,
+        window: newWindowStatus
+      });
     } catch (error) {
       console.error('Error updating greenhouse window status:', error);
     }
   };
-
+  
   return (
     <div className='container'>
       {greenhouse ? (
@@ -40,7 +48,7 @@ function GreenHouseDetails() {
           <p>Name: {greenhouse.name}</p>
           <p>ID: {greenhouse.id}</p>
           <p>Window opened: {greenhouse.window ? 'Yes' : 'No'}</p>
-          <button onClick={() => updateGreenhouseWindow(!greenhouse.window)}>
+          <button onClick={updateGreenhouseWindow}>
             {greenhouse.window ? 'Close Window' : 'Open Window'}
           </button>
         </div>
