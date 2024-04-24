@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fvCfP+jCvuoh3z4aBHXy9dKRKUSyBhQdLzilSw3oPAT7br1laxfrZAqqIvgI7Ux7asmSEDb75tvI0Bmrqc2VIA==",
+  "dgSpecHash": "8j+ynS8Gg2x6JWN/93P2dymEc1t3wHb7r6puXGyenoD3ngS159vY2FPBpl9UXsHwDnLcVLBt/mAxEmyy7y7u/A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\duart\\Documents\\GitHub\\proofOfConcept\\BackEnd\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

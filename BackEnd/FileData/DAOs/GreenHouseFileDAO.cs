@@ -23,4 +23,51 @@ public class GreenHouseFileDAO : IGreenHouseDAO
 
         return Task.FromResult(greenHouses);
     }
+
+    public Task<GreenHouse> CreateAsync(GreenHouse greenHouse)
+    {
+        int greenHouseId = 1;
+        if (context.GreenHouses.Any())
+        {
+            greenHouseId = context.GreenHouses.Max(g => g.GreenHouseId);
+            greenHouseId++;
+        }
+
+        greenHouse.GreenHouseId = greenHouseId;
+
+        context.GreenHouses.Add(greenHouse);
+        context.SaveChanges();
+
+        return Task.FromResult(greenHouse);
+    }
+
+    public Task<GreenHouse?> GetByNameAsync(string name)
+    {
+       GreenHouse? existing = context.GreenHouses.FirstOrDefault(g =>
+            g.GreenHouseName.Equals(name, StringComparison.OrdinalIgnoreCase)
+        );
+        return Task.FromResult(existing);
+    }
+
+    public Task UpdateAsync(GreenHouse toUpdateGreenHouse)
+    {
+        GreenHouse? existing = context.GreenHouses.FirstOrDefault(g => g.GreenHouseId == toUpdateGreenHouse.GreenHouseId);
+        if (existing == null)
+        {
+            throw new Exception($"GreenHouse with id {toUpdateGreenHouse.GreenHouseId} does not exist!");
+        }
+
+        context.GreenHouses.Remove(existing);
+        context.GreenHouses.Add(toUpdateGreenHouse);
+
+        context.SaveChanges();
+        return Task.CompletedTask;
+    }
+
+
+    public Task<GreenHouse?> GetByIdAsync(int id)
+    {
+        GreenHouse? existing = context.GreenHouses.FirstOrDefault(g => g.GreenHouseId == id);
+        return Task.FromResult(existing);
+    }
 }

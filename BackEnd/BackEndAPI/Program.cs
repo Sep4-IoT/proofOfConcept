@@ -1,6 +1,9 @@
+using Application.DAOInterfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
 using Domain.Model;
+using FileData;
+using FileData.DAOs;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +17,10 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 
-builder.Services.AddSingleton<List<Window>>(); 
-builder.Services.AddScoped<IWindowLogic, WindowLogic>(); 
+builder.Services.AddSingleton<List<GreenHouse>>(); 
+builder.Services.AddScoped<IGreenHouseLogic, GreenHouseLogic>(); 
+builder.Services.AddScoped<FileContext>();
+builder.Services.AddScoped<IGreenHouseDAO, GreenHouseFileDAO>();
 
 var app = builder.Build();
 

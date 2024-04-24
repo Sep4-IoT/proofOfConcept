@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fbrfRWYbZVmGVBxMmfE+lME042G3CtbygKaL+FgETExEpPjShFDLYLktmRPgglCz7dzybuPiCBzfeXkW0HLW7A==",
+  "dgSpecHash": "ToorLfbDnqqrY9l5TSW3bQYaS/Wp5vrLfAtx8896vZv0L+Ss+HpBa/d19WrhTmGtJbqK5nBNXcCdOdMWLSFn4A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\Database\\Database.csproj",
+  "projectFilePath": "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\Database\\Database.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

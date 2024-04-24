@@ -7,13 +7,33 @@ namespace BackEnd.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class GreenHouseController : ControllerBase
+public class  GreenHouseController : ControllerBase
 {
-    public IGreenHouseLogic greenHouseLogic;
-    
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<GreenHouse>>> GetAsync([FromQuery] int? greenHouseId)
+    private readonly IGreenHouseLogic greenHouseLogic;
+
+    public GreenHouseController(IGreenHouseLogic greenHouseLogic)
     {
+        this.greenHouseLogic = greenHouseLogic;
+    }
+    
+    [HttpPost]
+    public async Task<ActionResult<GreenHouse>> CreateAsync(GreenHouseCreationDTO dto)
+    {
+        try
+        {
+            GreenHouse greenHouse = await greenHouseLogic.CreateAsync(dto);
+            return Created($"/GreenHouse/{greenHouse.GreenHouseName}", greenHouse);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+    
+    [HttpGet ]
+    public async Task<ActionResult<IEnumerable<GreenHouse>>> GetAsync([FromQuery] int? greenHouseId)
+    { 
         try
         {
             SearchGreenHouseDTO parameters = new(greenHouseId);
@@ -26,5 +46,22 @@ public class GreenHouseController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
+    
+    [HttpPatch("{GreenHouseId}")]
+    public async Task<ActionResult<GreenHouse>> UpdateAsync([FromBody] UpdateGreenHouseDTO dto)
+    {
+        try
+        {
+            await greenHouseLogic.UpdateAsync(dto); 
+            return Ok(); 
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message); 
+            return StatusCode(500, e.Message);
+        }
+    }
+
     
 }

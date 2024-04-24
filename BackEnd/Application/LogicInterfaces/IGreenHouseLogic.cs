@@ -4,8 +4,10 @@ using Domain.Model;
 namespace Application.LogicInterfaces;
 
 public interface IGreenHouseLogic
-{
-    public Task<IEnumerable<GreenHouse>> GetAsync(SearchGreenHouseDTO searchParameters);
-    
-    
+{ 
+    Task<IEnumerable<GreenHouse>> GetAsync(SearchGreenHouseDTO searchParameters);
+    Task<GreenHouse> CreateAsync(GreenHouseCreationDTO greenHouseCreation);
+
+    Task UpdateAsync(UpdateGreenHouseDTO updateGreenHouse);
+
 }
