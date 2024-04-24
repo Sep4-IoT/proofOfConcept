@@ -7,7 +7,7 @@ public interface IGreenHouseLogic
 { 
     Task<IEnumerable<GreenHouse>> GetAsync(SearchGreenHouseDTO searchParameters);
     Task<GreenHouse> CreateAsync(GreenHouseCreationDTO greenHouseCreation);
-    
-    
-    
+
+    Task UpdateAsync(UpdateGreenHouseDTO updateGreenHouse);
+
 }

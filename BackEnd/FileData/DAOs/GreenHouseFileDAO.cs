@@ -43,9 +43,31 @@ public class GreenHouseFileDAO : IGreenHouseDAO
 
     public Task<GreenHouse?> GetByNameAsync(string name)
     {
-       GreenHouse? existing = context.GreenHouses.FirstOrDefault(u =>
-            u.GreenHouseName.Equals(name, StringComparison.OrdinalIgnoreCase)
+       GreenHouse? existing = context.GreenHouses.FirstOrDefault(g =>
+            g.GreenHouseName.Equals(name, StringComparison.OrdinalIgnoreCase)
         );
+        return Task.FromResult(existing);
+    }
+
+    public Task UpdateAsync(GreenHouse toUpdateGreenHouse)
+    {
+        GreenHouse? existing = context.GreenHouses.FirstOrDefault(g => g.GreenHouseId == toUpdateGreenHouse.GreenHouseId);
+        if (existing == null)
+        {
+            throw new Exception($"GreenHouse with id {toUpdateGreenHouse.GreenHouseId} does not exist!");
+        }
+
+        context.GreenHouses.Remove(existing);
+        context.GreenHouses.Add(toUpdateGreenHouse);
+
+        context.SaveChanges();
+        return Task.CompletedTask;
+    }
+
+
+    public Task<GreenHouse?> GetByIdAsync(int id)
+    {
+        GreenHouse? existing = context.GreenHouses.FirstOrDefault(g => g.GreenHouseId == id);
         return Task.FromResult(existing);
     }
 }

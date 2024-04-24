@@ -40,7 +40,34 @@ public class GreenHouseLogic : IGreenHouseLogic
     
         return created;
     }
-    
+
+    //NOT WORKING
+    public async Task UpdateAsync(UpdateGreenHouseDTO dto)
+    {
+        GreenHouse? existing = await greenHouseDao.GetByIdAsync(dto.GreenHouseId);
+        Console.WriteLine(existing.GreenHouseId);
+        
+        if (existing == null)
+        {
+            throw new Exception($"Greenhouse with ID {dto.GreenHouseId} not found!");
+        }
+
+        bool windowStateChanged = dto.IsWindowOpen != existing.IsWindowOpen;
+
+        GreenHouse updated = new GreenHouse(
+            dto.GreenHouseName,
+            dto.Description,
+            dto.Temperature,
+            dto.LightIntensity,
+            dto.Co2Levels,
+            dto.Humidity,
+            dto.IsWindowOpen);
+        
+            await greenHouseDao.UpdateAsync(updated);
+        
+    }
+
+
     private static void ValidateData(GreenHouseCreationDTO greenHouseCreation)
     {
         string userName = greenHouseCreation.GreenHouseName;
@@ -51,4 +78,8 @@ public class GreenHouseLogic : IGreenHouseLogic
         if (userName.Length > 20)
             throw new Exception("GreenHouse must be less than 21 characters!");
     }
+    
+    
+    
+    
 }

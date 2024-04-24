@@ -23,7 +23,6 @@ public class  GreenHouseController : ControllerBase
         {
             GreenHouse greenHouse = await greenHouseLogic.CreateAsync(dto);
             return Created($"/GreenHouse/{greenHouse.GreenHouseName}", greenHouse);
-            Console.WriteLine(1);
         }
         catch (Exception e)
         {
@@ -32,9 +31,9 @@ public class  GreenHouseController : ControllerBase
         }
     }
     
-    [HttpGet]
+    [HttpGet ]
     public async Task<ActionResult<IEnumerable<GreenHouse>>> GetAsync([FromQuery] int? greenHouseId)
-    {
+    { 
         try
         {
             SearchGreenHouseDTO parameters = new(greenHouseId);
@@ -47,5 +46,22 @@ public class  GreenHouseController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
+    
+    [HttpPatch("{GreenHouseId}")]
+    public async Task<ActionResult<GreenHouse>> UpdateAsync([FromBody] UpdateGreenHouseDTO dto)
+    {
+        try
+        {
+            await greenHouseLogic.UpdateAsync(dto); 
+            return Ok(); 
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message); 
+            return StatusCode(500, e.Message);
+        }
+    }
+
     
 }
