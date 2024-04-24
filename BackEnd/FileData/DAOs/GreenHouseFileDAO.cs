@@ -29,7 +29,7 @@ public class GreenHouseFileDAO : IGreenHouseDAO
         int greenHouseId = 1;
         if (context.GreenHouses.Any())
         {
-            greenHouseId = context.GreenHouses.Max(u => u.GreenHouseId);
+            greenHouseId = context.GreenHouses.Max(g => g.GreenHouseId);
             greenHouseId++;
         }
 
@@ -41,10 +41,10 @@ public class GreenHouseFileDAO : IGreenHouseDAO
         return Task.FromResult(greenHouse);
     }
 
-    public Task<GreenHouse?> GetByNameAsync(string userName)
+    public Task<GreenHouse?> GetByNameAsync(string name)
     {
        GreenHouse? existing = context.GreenHouses.FirstOrDefault(u =>
-            u.GreenHouseName.Equals(userName, StringComparison.OrdinalIgnoreCase)
+            u.GreenHouseName.Equals(name, StringComparison.OrdinalIgnoreCase)
         );
         return Task.FromResult(existing);
     }

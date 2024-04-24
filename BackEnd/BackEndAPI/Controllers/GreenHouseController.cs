@@ -7,10 +7,14 @@ namespace BackEnd.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class GreenHouseController : ControllerBase
+public class  GreenHouseController : ControllerBase
 {
-    public IGreenHouseLogic greenHouseLogic;
-    
+    private readonly IGreenHouseLogic greenHouseLogic;
+
+    public GreenHouseController(IGreenHouseLogic greenHouseLogic)
+    {
+        this.greenHouseLogic = greenHouseLogic;
+    }
     
     [HttpPost]
     public async Task<ActionResult<GreenHouse>> CreateAsync(GreenHouseCreationDTO dto)
@@ -18,7 +22,8 @@ public class GreenHouseController : ControllerBase
         try
         {
             GreenHouse greenHouse = await greenHouseLogic.CreateAsync(dto);
-            return Created($"/greenhouses/{greenHouse.GreenHouseId}", greenHouse);
+            return Created($"/GreenHouse/{greenHouse.GreenHouseName}", greenHouse);
+            Console.WriteLine(1);
         }
         catch (Exception e)
         {

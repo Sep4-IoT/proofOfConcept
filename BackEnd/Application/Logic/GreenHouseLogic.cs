@@ -27,12 +27,12 @@ public class GreenHouseLogic : IGreenHouseLogic
 
         ValidateData(dto);
         GreenHouse toCreate = new GreenHouse(
-            0,
             dto.GreenHouseName,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
+            dto.Description,
+            dto.Temperature,
+            dto.LightIntensity,
+            dto.Co2Levels,
+            dto.Humidity,
             false);
             
         

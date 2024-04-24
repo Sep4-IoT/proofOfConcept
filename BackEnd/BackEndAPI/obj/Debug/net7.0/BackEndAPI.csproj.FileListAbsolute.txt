@@ -80,3 +80,4 @@ C:\Users\duart\my-app\proofOfConcept\BackEnd\BackEndAPI\obj\Debug\net7.0\refint\
 C:\Users\duart\my-app\proofOfConcept\BackEnd\BackEndAPI\obj\Debug\net7.0\BackEndAPI.pdb
 C:\Users\duart\my-app\proofOfConcept\BackEnd\BackEndAPI\obj\Debug\net7.0\BackEndAPI.genruntimeconfig.cache
 C:\Users\duart\my-app\proofOfConcept\BackEnd\BackEndAPI\obj\Debug\net7.0\ref\BackEndAPI.dll
+C:\Users\duart\Documents\GitHub\proofOfConcept\BackEnd\BackEndAPI\bin\Debug\net7.0\data.json
