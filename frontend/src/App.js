@@ -1,56 +1,55 @@
 import React, { useState, useEffect } from 'react';
+import dotenv from 'dotenv';
+
+dotenv.config(); // Load environment variables from .env file
 
 function GreenHouseDetails() {
- const [greenhouse, setGreenhouse] = useState(null);
+  const [greenhouse, setGreenhouse] = useState(null);
 
- useEffect(() => {
+  useEffect(() => {
     fetch('https://raw.githubusercontent.com/kubista9/greenhouse/main/greenhouse.json')
       .then(response => response.json())
       .then(data => {
-        const { name, id, window } = data.greenhouse;
-        setGreenhouse({
-          name: name,
-          id: id,
-          window: window
-        });
+        const { name, id, window, sha } = data.greenhouse;
+        setGreenhouse({ name, id, window, sha });
       })
       .catch(error => {
         console.error("There was a problem with your fetch operation", error);
       });
- }, []);
+  }, []);
 
- const updateGreenhouseWindow = async () => {
-    const token = '[ GITHUB_PERSONAL_ACESS_TOKEN ]'; 
+  const updateGreenhouseWindow = async () => {
+    const token = process.env.REACT_APP_GITHUB_TOKEN;
     const owner = 'kubista9';
     const repo = 'greenhouse';
-    const path = 'main/greenhouse.json';
+    const path = 'greenhouse.json';
     const message = 'Update window status';
-    const content = JSON.stringify({
-      "greenhouse": {
-        "name": "Name Namesen",
-        "id": 69,
-        "window": true
+    const content = {
+      greenhouse: {
+        name: 'Name Namesen',
+        id: 69,
+        window: true
       }
-    }, null, 2);
-    const base64Content = btoa(content);
+    };
+    const fileContent = JSON.stringify(content, null, 2);
+    const base64Content = Buffer.from(fileContent).toString('base64');
 
     try {
-      const response = await fetch(`https://api.github.com/repos/kubista9/greenhouse/contents/main/greenhouse.json`, {
+      const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
         method: 'PUT',
         headers: {
           'Authorization': `token ${token}`,
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           message,
           content: base64Content,
-          sha: 'YOUR_CURRENT_FILE_SHA' 
-        })
+          sha: greenhouse.sha
+        }),
       });
 
       if (response.ok) {
         console.log('File updated successfully');
-        // Optionally, update the state to reflect the new window status
         setGreenhouse(prevState => ({ ...prevState, window: true }));
       } else {
         console.error('Failed to update file', response.statusText);
@@ -58,9 +57,9 @@ function GreenHouseDetails() {
     } catch (error) {
       console.error('Error updating file', error);
     }
- };
+  };
 
- return (
+  return (
     <div className='container'>
       {greenhouse ? (
         <div className='wrapper'>
@@ -73,7 +72,7 @@ function GreenHouseDetails() {
         <p>Loading greenhouse details...</p>
       )}
     </div>
- );
+  );
 }
 
 export default GreenHouseDetails;
