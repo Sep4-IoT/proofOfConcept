@@ -5,7 +5,7 @@ function GreenHouseDetails() {
  const [greenhouse, setGreenhouse] = useState(null);
 
  useEffect(() => {
-    fetch('https://githubraw.com/kubista9/greenhouse/tree/main')
+    fetch('https://kubista9.github.io/greenhouse/greenhouse.json')
       .then(response => response.json())
       .then(data => {
         const { name, id, window } = data.greenhouse;
