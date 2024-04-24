@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const token = process.env.REACT_APP_GITHUB_PAT;
 
 function GreenHouseDetails() {
  const [greenhouse, setGreenhouse] = useState(null);
@@ -20,7 +21,7 @@ function GreenHouseDetails() {
  }, []);
 
  const updateGreenhouseWindow = async () => {
-    const token = '[ GITHUB_PERSONAL_ACESS_TOKEN ]'; 
+    const token = 'token'; 
     const owner = 'kubista9';
     const repo = 'greenhouse';
     const path = 'main/greenhouse.json';
@@ -35,7 +36,7 @@ function GreenHouseDetails() {
     const base64Content = btoa(content);
 
     try {
-      const response = await fetch(`https://api.github.com/repos/kubista9/greenhouse/contents/main/greenhouse.json`, {
+      const response = await fetch(`https://github.com/kubista9/greenhouse`, {
         method: 'PUT',
         headers: {
           'Authorization': `token ${token}`,
@@ -44,7 +45,7 @@ function GreenHouseDetails() {
         body: JSON.stringify({
           message,
           content: base64Content,
-          sha: 'YOUR_CURRENT_FILE_SHA' 
+          sha: '5542c15d9c677b6c4571aac45387968c1a6e9a2d' 
         })
       });
 
