@@ -12,10 +12,10 @@ public class GreenHouse
     public double LightIntensity { get; set; }
     public double Co2Levels { get; set; }
     public double Humidity { get; set; }
-    public Window Window { get; }
+    public bool IsWindowOpen;
 
 
-    public GreenHouse(int greenHouseId, string greenHouseName, double temperature, double lightIntensity, double co2Levels, double humidity, Window window)
+    public GreenHouse(int greenHouseId, string greenHouseName, double temperature, double lightIntensity, double co2Levels, double humidity, bool isWindowOpen)
     {
         GreenHouseId = greenHouseId;
         GreenHouseName = greenHouseName;
@@ -23,11 +23,11 @@ public class GreenHouse
         LightIntensity = lightIntensity;
         Co2Levels = co2Levels;
         Humidity = humidity;
-        Window = window;
+        IsWindowOpen = isWindowOpen;
     }
 
     //Contains Description
-    public GreenHouse(int greenHouseId, string greenHouseName, string? description, double temperature, double lightIntensity, double co2Levels, double humidity, Window window)
+    public GreenHouse(int greenHouseId, string greenHouseName, string? description, double temperature, double lightIntensity, double co2Levels, double humidity, bool isWindowOpen)
     {
         GreenHouseId = greenHouseId;
         GreenHouseName = greenHouseName;
@@ -36,6 +36,6 @@ public class GreenHouse
         LightIntensity = lightIntensity;
         Co2Levels = co2Levels;
         Humidity = humidity;
-        Window = window;
+        IsWindowOpen = isWindowOpen;
     }
 }

@@ -542,19 +542,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dfold\\.nuget\\packages\\": {}
+    "C:\\Users\\duart\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\BackEndAPI\\BackEndAPI.csproj",
+      "projectUniqueName": "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\BackEndAPI\\BackEndAPI.csproj",
       "projectName": "BackEndAPI",
-      "projectPath": "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\BackEndAPI\\BackEndAPI.csproj",
-      "packagesPath": "C:\\Users\\dfold\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\BackEndAPI\\obj\\",
+      "projectPath": "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\BackEndAPI\\BackEndAPI.csproj",
+      "packagesPath": "C:\\Users\\duart\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\BackEndAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\dfold\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\duart\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -566,17 +566,17 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\Application\\Application.csproj"
+            "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\Application\\Application.csproj"
             },
-            "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\Domain\\Domain.csproj"
+            "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\FileData\\FileData.csproj": {
-              "projectPath": "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\FileData\\FileData.csproj"
+            "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\FileData\\FileData.csproj": {
+              "projectPath": "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\FileData\\FileData.csproj"
             },
-            "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\Services\\Services.csproj": {
-              "projectPath": "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\Services\\Services.csproj"
+            "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\Services\\Services.csproj": {
+              "projectPath": "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\Services\\Services.csproj"
             }
           }
         }
@@ -619,7 +619,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\dfold\\.dotnet\\sdk\\7.0.407\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

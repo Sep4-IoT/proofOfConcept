@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fvCfP+jCvuoh3z4aBHXy9dKRKUSyBhQdLzilSw3oPAT7br1laxfrZAqqIvgI7Ux7asmSEDb75tvI0Bmrqc2VIA==",
+  "dgSpecHash": "Np//p4sSYTjMW9UyTzh2IoBKjrBKR/EX18bbNXu1Mgd5bas8SXK9PdvggTxxQFMDNuTQ3OxllPwD6UYl8f6MBw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dfold\\OneDrive\\Skrivebord\\BackEnd\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\duart\\my-app\\proofOfConcept\\BackEnd\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
