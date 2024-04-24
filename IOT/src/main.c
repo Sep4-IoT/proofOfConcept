@@ -32,7 +32,7 @@ void setup(){
   wifi_init();
   display_init();
   buttons_init();
-  periodic_task_init_a(set_window,5000);
+  //periodic_task_init_a(set_window,5000);
 }
 
 void decode(){ // need to test of this works

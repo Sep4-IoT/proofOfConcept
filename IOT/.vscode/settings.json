@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "periodic_task.h": "c",
+        "pc_comm.h": "c",
+        "stdlib.h": "c",
+        "string.h": "c"
+    }
+}
