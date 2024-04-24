@@ -3,7 +3,7 @@
 
 #include <servo.h>
 
-void open();
+void open();    
 void close();
 void openAtAngle(uint8_t angle);
-int getState();
+int getState(); // get last set state of window
