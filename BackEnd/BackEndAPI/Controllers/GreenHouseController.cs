@@ -47,21 +47,22 @@ public class  GreenHouseController : ControllerBase
         }
     }
     
-    
-    [HttpPatch("{GreenHouseId}")]
-    public async Task<ActionResult<GreenHouse>> UpdateAsync([FromBody] UpdateGreenHouseDTO dto)
+    [HttpPatch("{greenHouseId}")]
+    public async Task<ActionResult<GreenHouse>> UpdateAsync(int greenHouseId, [FromBody] UpdateGreenHouseDTO dto)
     {
         try
         {
-            await greenHouseLogic.UpdateAsync(dto); 
-            return Ok(); 
+            Console.WriteLine(greenHouseId);
+            await greenHouseLogic.UpdateAsync(greenHouseId, dto);
+            return Ok();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.Message); 
+            Console.WriteLine(e.Message);
             return StatusCode(500, e.Message);
         }
     }
+
 
     
 }

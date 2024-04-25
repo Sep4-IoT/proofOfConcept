@@ -25,5 +25,21 @@ public class GreenHouse
         Humidity = humidity;
         IsWindowOpen = isWindowOpen;
     }
+    
+    public GreenHouse(int greenHouseId, string? greenHouseName, string? description, double? temperature, double? lightIntensity,
+        double? co2Levels, double? humidity, bool? isWindowOpen)
+    {
+        GreenHouseId = greenHouseId;
+        GreenHouseName = greenHouseName;
+        Description = description;
+        Temperature = temperature;
+        LightIntensity = lightIntensity;
+        Co2Levels = co2Levels;
+        Humidity = humidity;
+        IsWindowOpen = isWindowOpen;
+    }
+    
+    public GreenHouse() {}
+    
 
 }

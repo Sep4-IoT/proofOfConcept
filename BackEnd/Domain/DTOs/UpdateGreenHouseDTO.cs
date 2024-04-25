@@ -2,7 +2,6 @@ namespace Domain.DTOs;
 
 public class UpdateGreenHouseDTO
 {
-    public int GreenHouseId { get; set; }
     public string? GreenHouseName { get; set; }
     public string? Description { get; set; }
     public double? Temperature { get; set; }
