@@ -5,6 +5,12 @@
 #include <stdio.h>
 #include "decoder.h"
 
+// wifi controloler rename
+//name convention wifiModule_initialiseWifiModule;
+//class diagram
+// naming variables wifiModule_AP_SSID;
+
+
 extern bool debugMode;
  char *AP_SSID;
  char *AP_PSWD;

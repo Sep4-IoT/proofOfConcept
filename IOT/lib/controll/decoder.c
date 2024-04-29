@@ -7,6 +7,7 @@
 
 extern bool debugMode;
 
+// only care about readability and aintainability
 
 void decode(const char *message) {
     if (debugMode) {
