@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Import axios
+import axios from 'axios'; 
 
 function GreenHouseDetails() {
   const [greenhouse, setGreenhouse] = useState(null);
@@ -7,7 +7,7 @@ function GreenHouseDetails() {
   useEffect(() => {
     const fetchGreenhouseData = async () => {
       try {
-        const response = await fetch('https://kubista9.github.io/greenhouse/greenhouse.json');
+        const response = await fetch('http://localhost:3000/api/updateGreenhouse');
         if (!response.ok) {
           throw new Error('Failed to fetch greenhouse data');
         }
