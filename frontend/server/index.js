@@ -1,28 +1,42 @@
 const express = require('express');
 const fs = require('fs').promises;
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Import cors middleware
+const cors = require('cors'); 
 const path = require('path');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors()); // Enable CORS for all routes
+app.use(cors());
 
-const jsonFilePath = path.join(__dirname, '../greenhouse.json'); // Resolve path to greenhouse.json
+const jsonFilePath = path.join(__dirname, './greenhouse.json');
 
-// Endpoint to update greenhouse data
+app.get('/api/getGreenhouseData', async (req, res) => {
+  try {
+    const rawData = await fs.readFile(jsonFilePath);
+    const jsonData = JSON.parse(rawData);
+
+    const greenhouseData = {
+      temperature: jsonData.greenhouse.temperature,
+      humidity: jsonData.greenhouse.humidity,
+    };
+
+    res.status(200).json(greenhouseData);
+  } catch (error) {
+    console.error('Error retrieving greenhouse data:', error);
+    res.status(500).json({ message: 'Failed to retrieve greenhouse data' });
+  }
+});
+
+
 app.put('/api/updateGreenhouse', async (req, res) => {
   try {
     const { window } = req.body;
 
-    // Read existing JSON data
     const rawData = await fs.readFile(jsonFilePath);
     const jsonData = JSON.parse(rawData);
 
-    // Update window property
     jsonData.greenhouse.window = window;
 
-    // Write updated JSON data back to file
     await fs.writeFile(jsonFilePath, JSON.stringify(jsonData, null, 2));
 
     res.status(200).json({ message: 'Greenhouse window status updated successfully' });
@@ -32,8 +46,7 @@ app.put('/api/updateGreenhouse', async (req, res) => {
   }
 });
 
-// Define a different port (e.g., 3000)
-const PORT = process.env.PORT || 3000; // Use port 3000 as an example
+const PORT = process.env.PORT || 3000; 
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
