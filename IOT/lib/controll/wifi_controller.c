@@ -1,5 +1,5 @@
 #include "wifi.h"
-#include "wifiController.h"
+#include "wifi_controller.h"
 #include "debug.h"
 #include <stdbool.h>
 #include <stdio.h>
@@ -20,39 +20,39 @@ extern bool debugMode;
 char receivedMessage[50];
 
 // initialisation of module
-void initialiseWifiModule(){
+void wifi_controller_initialise_wifi_module(){
     wifi_init();
-    if(debugMode){printDebug("wifiModule initialised \n");}
+    if(debugMode){debug_print("wifiModule initialised \n");}
     
 }
 
 // changing credentials/server ip
-void setAP_SSID(const char *SSID) {
+void wifi_controller_set_ap_ssid(const char *SSID) {
     AP_SSID = SSID;
     if (debugMode) {
         char debugMessage[50];
         sprintf(debugMessage, "setAP_SSID %s  \n", AP_SSID);
-        printDebug(debugMessage);
+        debug_print(debugMessage);
     }
 }
-void setAP_PSWD(const char *PSWD) {
+void wifi_controller_set_ap_pswd(const char *PSWD) {
     AP_PSWD = PSWD;
     if (debugMode) {
         char debugMessage[50];
         sprintf(debugMessage, "setAP_PSWD %s  \n", AP_PSWD);
-        printDebug(debugMessage);
+        debug_print(debugMessage);
     }
 }
-void setServerIP(const char *IP) {
+void wifi_controller_set_server_ip(const char *IP) {
     ServerIP = IP;
     if (debugMode) {
         char debugMessage[50];
         sprintf(debugMessage, "setServerIP %s  \n", ServerIP);
-        printDebug(debugMessage);
+        debug_print(debugMessage);
     }
 }
 
-void setServerPort(const uint16_t *Port) {
+void wifi_controller_set_server_port(const uint16_t *Port) {
     ServerPort = Port;
     if (debugMode) {
         char portString[6]; // Assuming 5 characters for the port number plus null terminator
@@ -60,53 +60,53 @@ void setServerPort(const uint16_t *Port) {
         sprintf(portString, "%u", ServerPort);
         char debugMessage[50];
         sprintf(debugMessage, "setServerPort %s  \n", portString);
-        printDebug(debugMessage);
+        debug_print(debugMessage);
     }
 }
 
 // connectivity management
-void connectToAP(){
+void wifi_controller_connect_to_ap(){
 
     if(debugMode){
         char debugMessage[50]; // Assuming the message won't exceed 50 characters
         sprintf(debugMessage, "connectToAP SSID:%s PSWD:%s \n", AP_SSID, AP_PSWD);
-        printDebug(debugMessage);
+        debug_print(debugMessage);
         }
 
     if (WIFI_OK==wifi_command_join_AP(AP_SSID,AP_PSWD))  
-        if(debugMode){printDebug("Joined AP \n");}
+        if(debugMode){debug_print("Joined AP \n");}
     else 
-        if(debugMode){printDebug("Failed to join AP \n");}
+        if(debugMode){debug_print("Failed to join AP \n");}
 }
-void disconnectFromAP(){
+void wifi_controller_disconnect_from_ap(){
     wifi_command_quit_AP();
-    if(debugMode){printDebug("Disconected from AP \n");}
+    if(debugMode){debug_print("Disconected from AP \n");}
 }
-void connectToTCP(){
+void wifi_controller_connect_to_tcp(){
     if(debugMode){
         char portString[6]; // Assuming 5 characters for the port number plus null terminator
         // Convert uint8_t ServerPort to string
         sprintf(portString, "%u", ServerPort);
         char debugMessage[50]; // Assuming the message won't exceed 50 characters
         sprintf(debugMessage, "connectToTCP %s:%s \n", ServerIP, portString);
-        printDebug(debugMessage);
+        debug_print(debugMessage);
     }
 
 
-    if (WIFI_OK == wifi_command_create_TCP_connection(ServerIP,ServerPort, callback, receivedMessage))  // use this for callback and deciphering callback
-        if(debugMode){printDebug("Joined TCP connection\n");}
+    if (WIFI_OK == wifi_command_create_TCP_connection(ServerIP,ServerPort, wifi_controller_callback, receivedMessage))  // use this for callback and deciphering callback
+        if(debugMode){debug_print("Joined TCP connection\n");}
     else
-        if(debugMode){printDebug("Failed connecting tcp\n");}
+        if(debugMode){debug_print("Failed connecting tcp\n");}
         
 }
-void disconnectFromTCP(){
+void wifi_controller_disconnect_from_tcp(){
     
     wifi_command_close_TCP_connection();
-    if(debugMode){printDebug("disconnectFromTCP\n");}
+    if(debugMode){debug_print("disconnectFromTCP\n");}
 }
 
 // sending messages
-void sendMessage(const char *message){
+void wifi_controller_send_message(const char *message){
     char paddedMessage[50]; // Assuming the maximum length of the message is 50 characters
 
     // Copy the message to paddedMessage and pad with null characters if necessary
@@ -124,17 +124,17 @@ void sendMessage(const char *message){
     if (debugMode) {
         char debugMessage[50];
         sprintf(debugMessage, "sendMessage \' %s \' \n", message);
-        printDebug(debugMessage);
+        debug_print(debugMessage);
     }
 }
 
 // callback function
-void callback(){
+void wifi_controller_callback(){
     if(debugMode){
         char debugMessage[50]; // Assuming the message won't exceed 50 characters
         sprintf(debugMessage,"recieved message: %s \n" , receivedMessage);
-        printDebug(debugMessage);
+        debug_print(debugMessage);
     }
-    decode(receivedMessage);
+    decoder_decode(receivedMessage);
     
 }

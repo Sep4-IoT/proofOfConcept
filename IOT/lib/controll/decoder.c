@@ -10,11 +10,11 @@ extern char greenhouseId[];
 
 // only care about readability and maintainability
 
-void decode(const char *message) {
+void decoder_decode(const char *message) {
     if (debugMode) {
         char debugMessage[100]; 
         sprintf(debugMessage, "decode: %s \n", message); 
-        printDebug(debugMessage); 
+        debug_print(debugMessage); 
     }
 
     char *substring = strstr(message, "REQ,10,SET,SER,");
@@ -26,17 +26,17 @@ void decode(const char *message) {
             // Extract the last part of the message as an integer
             int windowOpenAngle;
             if (sscanf(message + strlen("REQ,10,SET,SER,"), "%d", &windowOpenAngle) == 1) {
-                openAtAngle(windowOpenAngle);
+                window_open_at_angle(windowOpenAngle);
 
                 char answer[50]; // "ACK,{Greenhouse id},{Sensor},{Answer}"
-                sprintf(answer, "ACK,%s,SER,%u" , greenhouseId,getState()); 
+                sprintf(answer, "ACK,%s,SER,%u" , greenhouseId,window_get_state()); 
 
-                sendMessage(answer);
+                wifi_controller_send_message(answer);
 
                 if (debugMode) {
                     char debugMessage[100]; 
                     sprintf(debugMessage, "ACK message sent: %s \n", answer); 
-                    printDebug(debugMessage); 
+                    debug_print(debugMessage); 
                 }
 
             }

@@ -2,4 +2,4 @@
 /// to display all the aplication layer calls being made for debugging.
 #include "window.h"
 
-void decode(const char *message);
+void decoder_decode(const char *message);

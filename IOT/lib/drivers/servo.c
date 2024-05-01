@@ -6,7 +6,7 @@
 #define P_SERVO PE3
 #define PORT_SERVO PORTE
 
-void servo(uint8_t angle)
+void servo_set_angle(uint8_t angle)
 {
     // Initialize as output
     DDR_SERVO |= (1 << P_SERVO);

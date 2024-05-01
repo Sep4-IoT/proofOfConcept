@@ -2,5 +2,5 @@
 /// to display all the aplication layer calls being made for debugging.
 #include <stdbool.h>
 
-void debugInit();
-void printDebug(const char *message);
+void debug_init();
+void debug_print(const char *message);

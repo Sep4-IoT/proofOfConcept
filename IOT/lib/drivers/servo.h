@@ -1,2 +1,2 @@
 #include <stdint.h>
-void servo(uint8_t angle);
+void servo_set_angle(uint8_t angle);

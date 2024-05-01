@@ -6,35 +6,35 @@
 uint8_t windowAngle;
 extern bool debugMode;
 
-void open(){
+void window_open(){
     // Opens servo, no questions asked
-    servo(180);
+    servo_set_angle(180);
     windowAngle = 180;
-    if(debugMode){printDebug("window close \n");}
+    if(debugMode){debug_print("window close \n");}
 }
-void close(){
+void window_close(){
     // Closes servo, no questions asked
-    servo(0);
+    servo_set_angle(0);
     windowAngle = 0;
-    if(debugMode){printDebug("window close \n");}
+    if(debugMode){debug_print("window close \n");}
 }
-void openAtAngle(uint8_t angle){
+void window_open_at_angle(uint8_t angle){
     // Sets to an angle of openess, one question asked
-    servo(angle);
+    servo_set_angle(angle);
     windowAngle = angle;
     if (debugMode) {
         char debugMessage[50];
         sprintf(debugMessage, "window openAtAngle: %u  \n", windowAngle);
-        printDebug(debugMessage);
+        debug_print(debugMessage);
     }
 }
 
-int getState(){
+int window_get_state(){
     // Reminds you of your window status
     if (debugMode) {
         char debugMessage[50];
         sprintf(debugMessage, "window getState:  %u \n", windowAngle);
-        printDebug(debugMessage);
+        debug_print(debugMessage);
     }
     return windowAngle;
 }
