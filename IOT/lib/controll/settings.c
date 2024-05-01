@@ -1,5 +1,9 @@
 #include <stdbool.h>
 
+//Module debug modes
+bool window_debugMode = true;
+bool decoder_debugMode = true;
+bool wifi_controller_debugMode = true;
 
-bool debugMode = true; // debug mode for entire module now
+//Global easilly acessable settings
 char greenhouseId[] = "10"; // greenhouse id

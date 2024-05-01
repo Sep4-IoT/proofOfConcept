@@ -5,13 +5,13 @@
 #include "decoder.h"
 #include "settings.c"
 
-extern bool debugMode;
+extern bool decoder_debugMode;
 extern char greenhouseId[];
 
 // only care about readability and maintainability
 
 void decoder_decode(const char *message) {
-    if (debugMode) {
+    if (decoder_debugMode) {
         char debugMessage[100]; 
         sprintf(debugMessage, "decode: %s \n", message); 
         debug_print(debugMessage); 
@@ -33,7 +33,7 @@ void decoder_decode(const char *message) {
 
                 wifi_controller_send_message(answer);
 
-                if (debugMode) {
+                if (decoder_debugMode) {
                     char debugMessage[100]; 
                     sprintf(debugMessage, "ACK message sent: %s \n", answer); 
                     debug_print(debugMessage); 
