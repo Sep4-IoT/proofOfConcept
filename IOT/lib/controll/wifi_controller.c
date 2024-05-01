@@ -12,10 +12,10 @@
 
 
 extern bool wifi_controller_debugMode;
- char *AP_SSID;
- char *AP_PSWD;
- char *ServerIP;
- uint16_t *ServerPort;
+extern char *AP_SSID;
+extern char *AP_PSWD;
+extern char *ServerIP;
+extern uint16_t *ServerPort;
 
 char receivedMessage[50];
 
