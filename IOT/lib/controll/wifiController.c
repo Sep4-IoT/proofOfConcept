@@ -1,5 +1,5 @@
 #include "wifi.h"
-#include "wifiModule.h"
+#include "wifiController.h"
 #include "debug.h"
 #include <stdbool.h>
 #include <stdio.h>

@@ -7,6 +7,7 @@
         "stdbool.h": "c",
         "wifi.h": "c",
         "wifimodule.h": "c",
-        "debug.h": "c"
+        "debug.h": "c",
+        "decoder.h": "c"
     }
 }

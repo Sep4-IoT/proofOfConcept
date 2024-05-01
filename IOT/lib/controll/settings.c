@@ -1,4 +1,5 @@
 #include <stdbool.h>
 
 
-bool debugMode = true; //Q for lesson, how do i move this deeper, so each module can be turned on or off individually?
+bool debugMode = true; // debug mode for entire module now
+char greenhouseId[] = "10"; // greenhouse id

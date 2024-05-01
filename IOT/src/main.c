@@ -6,7 +6,7 @@
 #include "periodic_task.h"
 #include "window.h"
 #include "debug.h"
-#include "wifiModule.h"
+#include "wifiController.h"
 #include "debug.h"
 
 
@@ -25,7 +25,7 @@ void setup(){
   initialiseWifiModule();
   setAP_SSID("augustinas");
   setAP_PSWD("asdfghjk");
-  setServerIP("192.168.103.40");
+  setServerIP("192.168.5.40");
   setServerPort(23);
   connectToAP();
   connectToTCP();
