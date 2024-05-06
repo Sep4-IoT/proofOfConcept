@@ -61,23 +61,23 @@ void decoder_decode(const char *message) {
     {
         int angle = atoi(token[4]); //Converting angle which is the 5th parameter of REQ,gid,SET,SER,val
         window_open_at_angle(angle);
-        decoder_reply(message, ACK_GID_SEN_VAL, 0, window_get_state(), 1);
+        decoder_send(message, ACK_GID_SEN_VAL, 0, window_get_state(), 1);
     }
     // Request for sensor data
     else if (t0_is_req == 0 && t2_is_get == 0 && t3_is_ser == 0) //In: REQ,gid,GET,SER
     {
-        decoder_reply(message, RES_GID_SEN_VAL, 0, window_get_state(), 1);
+        decoder_send(message, RES_GID_SEN_VAL, 0, window_get_state(), 1);
     }
     // Echo for connectivity response
-    else if (t0_is_req == 0 && t2_is_echo == 1) //In: REQ,gid,ECHO
+    else if (t0_is_req == 0 && t2_is_echo == 0) //In: REQ,gid,ECHO
     {
-        decoder_reply(message, ACK_GID_ECHO, NULL, NULL, 1);
+        decoder_send(message, ACK_GID_ECHO, NULL, NULL, 1);
     }
 }
 
 // SENSOR LEGEND: SER=0, LIG=1, HUM=2, CO2=3, TEM=4
 // DEBUG LEGEND: FALSE=0, TRUE=1
-void decoder_reply (const char* message, response_pattern pattern, int sensor, int value, int debug)
+void decoder_send (const char* message, response_pattern pattern, int sensor, int value, int debug)
 {
     char answer[50];
     if (pattern == ACK_GID_SEN_VAL)
