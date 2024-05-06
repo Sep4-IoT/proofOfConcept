@@ -9,7 +9,7 @@
 extern bool decoder_debugMode;
 extern char greenhouseId[];
 
-enum response_pattern {
+enum communication_pattern {
     ACK_GID_SEN_VAL,
     ACK_GID_ECHO,
     RES_GID_SEN_VAL,
@@ -77,7 +77,7 @@ void decoder_decode(const char *message) {
 
 // SENSOR LEGEND: SER=0, LIG=1, HUM=2, CO2=3, TEM=4
 // DEBUG LEGEND: FALSE=0, TRUE=1
-void decoder_send (const char* message, response_pattern pattern, int sensor, int value, int debug)
+void decoder_send (const char* message, enum communication_pattern pattern, int sensor, int value, int debug)
 {
     char answer[50];
     if (pattern == ACK_GID_SEN_VAL)
@@ -156,7 +156,7 @@ void decoder_send (const char* message, response_pattern pattern, int sensor, in
 
     if (debug == 1)
     {
-        switch (response_pattern)
+        switch (communication_pattern)
             case ACK_GID_SEN_VAL:
             case ACK_GID_ECHO:
                 debug_print_w_prefix(message, "ACK message sent"); 

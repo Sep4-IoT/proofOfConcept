@@ -4,3 +4,4 @@
 
 void debug_init();
 void debug_print(const char *message);
+void debug_print_w_prefix(const char *message, const char *prefix);
