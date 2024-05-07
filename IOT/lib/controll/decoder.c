@@ -55,25 +55,25 @@ void decoder_decode(const char *message) {
     // Set new option for a sensor
     if (t0_is_req == 0 && t2_is_set == 0 && t3_is_ser == 0) //In: REQ,gid,SET,SER,val
     {
-        int angle = atoi(token[4]); //Converting angle which is the 5th parameter of REQ,gid,SET,SER,val
+        int angle = atoi(tokens[4]); //Converting angle which is the 5th parameter of REQ,gid,SET,SER,val
         window_open_at_angle(angle);
-        decoder_send(message, ACK_GID_SEN_VAL, 0, window_get_state(), 1);
+        decoder_send(message, ACK_GID_SEN_VAL, 0, window_get_state());
     }
     // Request for sensor data
     else if (t0_is_req == 0 && t2_is_get == 0 && t3_is_ser == 0) //In: REQ,gid,GET,SER
     {
-        decoder_send(message, RES_GID_SEN_VAL, 0, window_get_state(), 1);
+        decoder_send(message, RES_GID_SEN_VAL, 0, window_get_state());
     }
     // Echo for connectivity response
     else if (t0_is_req == 0 && t2_is_echo == 0) //In: REQ,gid,ECHO
     {
-        decoder_send(message, ACK_GID_ECHO, NULL, NULL, 1);
+        decoder_send(message, ACK_GID_ECHO, NULL, NULL);
     }
 }
 
 // SENSOR LEGEND: SER=0, LIG=1, HUM=2, CO2=3, TEM=4
 // DEBUG LEGEND: FALSE=0, TRUE=1
-void decoder_send (const char* message, enum COMMUNICATION_PATTERN_t pattern, int sensor, int value, int debug)
+void decoder_send (const char* message, enum COMMUNICATION_PATTERN_t pattern, int sensor, int value)
 {
     char answer[50];
     if (pattern == ACK_GID_SEN_VAL)
@@ -150,21 +150,21 @@ void decoder_send (const char* message, enum COMMUNICATION_PATTERN_t pattern, in
 
     wifi_controller_send_message(answer);
 
-    if (debug == 1)
+    if (decoder_debugMode == true)
 {
     switch (pattern){ // Corrected
         case ACK_GID_SEN_VAL:
         case ACK_GID_ECHO:
-            debug_print_w_prefix(message, "ACK message sent"); 
+            debug_print_w_prefix(answer, "ACK message sent"); 
             break;
         case RES_GID_SEN_VAL:
-            debug_print_w_prefix(message, "RES message sent"); 
+            debug_print_w_prefix(answer, "RES message sent"); 
             break;    
         case UPD_GID_POST_SEN_VAL:
-            debug_print_w_prefix(message, "UPD message sent"); 
+            debug_print_w_prefix(answer, "UPD message sent"); 
             break;    
         case WAR_GID_VAL:
-            debug_print_w_prefix(message, "WAR message sent"); 
+            debug_print_w_prefix(answer, "WAR message sent"); 
             break;  
             }
 }
