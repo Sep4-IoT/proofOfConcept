@@ -11,4 +11,4 @@ char greenhouseId[] = "10"; // greenhouse id
 char *AP_SSID = "augustinas";
 char *AP_PSWD = "asdfghjk";
 char *ServerIP = "192.168.5.40";
-uint16_t *ServerPort = 23;
+uint16_t  ServerPort = 23;

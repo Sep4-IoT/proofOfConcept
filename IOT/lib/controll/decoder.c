@@ -5,17 +5,13 @@
 #include <stdbool.h>
 #include "decoder.h"
 #include "settings.c"
+#include <stdio.h>
+
 
 extern bool decoder_debugMode;
 extern char greenhouseId[];
 
-enum COMMUNICATION_PATTERN_t {
-    ACK_GID_SEN_VAL,
-    ACK_GID_ECHO,
-    RES_GID_SEN_VAL,
-    UPD_GID_POST_SEN_VAL,
-    WAR_GID_VAL
-}
+enum COMMUNICATION_PATTERN_t;
 
 // only care about readability and maintainability
 
@@ -155,22 +151,23 @@ void decoder_send (const char* message, enum COMMUNICATION_PATTERN_t pattern, in
     wifi_controller_send_message(answer);
 
     if (debug == 1)
-    {
-        switch (communication_pattern)
-            case ACK_GID_SEN_VAL:
-            case ACK_GID_ECHO:
-                debug_print_w_prefix(message, "ACK message sent"); 
-                break;
-            case RES_GID_SEN_VAL:
-                debug_print_w_prefix(message, "RES message sent"); 
-                break;    
-            case UPD_GID_POST_SEN_VAL:
-                debug_print_w_prefix(message, "UPD message sent"); 
-                break;    
-            case WAR_GID_VAL:
-                debug_print_w_prefix(message, "WAR message sent"); 
-                break;  
-    }
+{
+    switch (pattern){ // Corrected
+        case ACK_GID_SEN_VAL:
+        case ACK_GID_ECHO:
+            debug_print_w_prefix(message, "ACK message sent"); 
+            break;
+        case RES_GID_SEN_VAL:
+            debug_print_w_prefix(message, "RES message sent"); 
+            break;    
+        case UPD_GID_POST_SEN_VAL:
+            debug_print_w_prefix(message, "UPD message sent"); 
+            break;    
+        case WAR_GID_VAL:
+            debug_print_w_prefix(message, "WAR message sent"); 
+            break;  
+            }
+}
 }
 
 // OLD CODE:

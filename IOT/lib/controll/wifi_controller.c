@@ -15,7 +15,7 @@ extern bool wifi_controller_debugMode;
 extern char *AP_SSID;
 extern char *AP_PSWD;
 extern char *ServerIP;
-extern uint16_t *ServerPort;
+extern uint16_t ServerPort;
 
 char receivedMessage[50];
 
